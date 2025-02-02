@@ -1,6 +1,6 @@
 Projeto Amigo Secreto
 
-Este projeto é uma aplicação simples para realizar o sorteio de um amigo. O usuário pode adicionar nomes de amigos à lista, e depois realizar o sorteio para escolher um ganhador. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript.
+  Este projeto é uma aplicação simples para realizar o sorteio de um amigo. O usuário pode adicionar nomes de amigos à lista, e depois realizar o sorteio para escolher um ganhador. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript.
 
 
 Funcionalidades ✨
