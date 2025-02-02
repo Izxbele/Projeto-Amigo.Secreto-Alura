@@ -1,49 +1,62 @@
-let amigos = []; 
+let amigos = [];
+let sorteioFeito = false;
 
 function adicionarAmigo() {
-    let campoDeNome = document.getElementById("amigo"); 
-    let nome = campoDeNome.value.trim();
+    let nome = document.getElementById("amigo").value.trim();
 
-    if (nome === "") {
+    if (!nome) {
         alert("Por favor, insira um nome.");
-        return; 
+        return;
     }
 
-    amigos.push(nome); 
-    mostrarAmigos(); 
-    campoDeNome.value = ""; 
+    if (amigos.includes(nome)) {
+        alert("Este nome já foi adicionado.");
+        return;
+    }
+
+    amigos.push(nome);
+    mostrarAmigos();
+    document.getElementById("amigo").value = "";
 }
 
 function mostrarAmigos() {
-    let lista = document.getElementById("listaAmigos"); 
-    lista.innerHTML = ""; 
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
 
-    amigos.forEach(function(amigo) {
+    amigos.forEach((amigo, index) => {
         let item = document.createElement("li");
-        item.textContent = amigo; 
+        item.textContent = amigo;
+        
+        // Cria o botão de remover, desabilita se o sorteio foi feito e adiciona ao item da lista
+        let botaoRemover = document.createElement("button");
+        botaoRemover.textContent = "X";
+        botaoRemover.disabled = sorteioFeito;
+        botaoRemover.onclick = () => removerAmigo(index);
+
+        item.appendChild(botaoRemover);
         lista.appendChild(item);
     });
 }
 
-function sortearAmigo() {
-    if (amigos.length < 1) {
-        alert("Adicione pelo menos 1 amigo para sortear.");
-        return; 
-    }
-
-    let amigoGanhador = amigos[Math.floor(Math.random() * amigos.length)];
-    
-    let resultado = document.getElementById("resultado"); 
-    resultado.textContent = `O ganhador do Amigo Secreto é: ${amigoGanhador}`; 
-
-    // Desabilita o campo de texto depois do sorteio
-    let campoDeNome = document.getElementById("amigo");
-    campoDeNome.disabled = true; 
+// Remove o amigo da lista pelo índice e atualiza a lista
+function removerAmigo(index) {
+    amigos.splice(index, 1);
+    mostrarAmigos();
 }
 
-// Função para adicionar amigo ao apertar "Enter"
-document.getElementById("amigo").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        adicionarAmigo(); 
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert("Adicione pelo menos 1 amigo para sortear.");
+        return;
     }
+
+    let ganhador = amigos[Math.floor(Math.random() * amigos.length)];
+    document.getElementById("resultado").innerHTML = `O ganhador do Amigo Secreto é: <strong>${ganhador}</strong>`;
+    sorteioFeito = true;
+    mostrarAmigos();
+}
+
+// Quando "Enter" é pressionado, adiciona o amigo
+document.getElementById("amigo").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") adicionarAmigo();
 });
