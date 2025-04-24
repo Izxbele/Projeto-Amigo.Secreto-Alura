@@ -36,13 +36,23 @@ Este é um projeto simples para realizar sorteios de **Amigo Secreto** de forma 
 
 ## Como Visualizar no Navegador 🌐
 
-Para visualizar o projeto:
+Para visualizar o projeto corretamente, siga os passos abaixo:
 
-1. Baixe ou clone o repositório no seu computador.
-2. Abra o arquivo `index.html` diretamente no seu navegador de internet.
-   - Basta dar um **duplo clique** no arquivo `index.html` ou abrir o arquivo via menu de contexto do navegador (por exemplo, "Abrir com..." no Chrome ou Firefox).
-   
-   **Nota**: Não é necessário instalar nada, o arquivo HTML pode ser visualizado diretamente no navegador.
+1. **Baixe ou clone o repositório** no seu computador.
+2. **Abra o arquivo `index.html` com um servidor local**:
+   - Para isso, você **precisa do Live Server** instalado no **VSCode**. Siga os passos:
+     1. Abra o projeto no VSCode.
+     2. Instale a extensão **Live Server** (se ainda não tiver). Basta procurar por "Live Server" na seção de extensões do VSCode e clicar em "Install".
+     3. Após a instalação, clique com o botão direito no arquivo `index.html` e selecione **"Open with Live Server"**.
+   - Isso abrirá o seu projeto em um servidor local no navegador.
+
+3. **Alternativa**: Você também pode usar qualquer outro servidor local (como XAMPP, WAMP, ou Python HTTP server) para garantir que os arquivos (imagens, CSS, JS) sejam carregados corretamente.
+
+4. **Ou**: Para hospedar online, você pode usar o **GitHub Pages**. Siga os passos abaixo:
+   - Vá para **Settings** do seu repositório no GitHub.
+   - Encontre a seção **GitHub Pages**.
+   - Em **Source**, selecione a branch `main` ou `master`.
+   - O GitHub vai gerar um link para acessar o seu projeto online.
 
 ## Tecnologias Utilizadas ⚙️
 
